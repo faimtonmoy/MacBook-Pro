@@ -34,3 +34,34 @@ document.getElementById('ram-zero').addEventListener('click', function(){
 document.getElementById('ram-charge').addEventListener('click', function(){
     ramPayment(true);
 })
+
+
+//Extra Storage Payment Button Collection
+function storagePayment(type)
+{
+    if(type== 'usual')
+    {
+        document.getElementById('storage-cost').innerText= 0;
+        finalTotal();
+    }
+    else if(type== 'medium')
+    {
+        document.getElementById('storage-cost').innerText= 100;
+        finalTotal();
+    }
+    else if(type== 'large')
+    {
+        document.getElementById('storage-cost').innerText= 180;
+        finalTotal();
+    }
+
+}
+document.getElementById('ssd-usual').addEventListener('click', function(){
+    storagePayment('usual');
+})
+document.getElementById('ssd-medium').addEventListener('click', function(){
+    storagePayment('medium');
+})
+document.getElementById('ssd-large').addEventListener('click', function(){
+    storagePayment('large');
+})
