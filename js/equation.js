@@ -15,15 +15,15 @@ function finalTotal()
 function ramPayment(isCharge)
 {
     const ramPayment= document.getElementById('ram-payment');
-    let ramNumber=0;
+    
     if(isCharge)
     {
-        ramNumber= ramPayment.innerText= 180;
+        ramPayment.innerText= 180;
         finalTotal();
     }
     else
     {
-        ramNumber= ramPayment.innerText=0;
+        ramPayment.innerText=0;
         finalTotal();
     }
     
@@ -64,4 +64,29 @@ document.getElementById('ssd-medium').addEventListener('click', function(){
 })
 document.getElementById('ssd-large').addEventListener('click', function(){
     storagePayment('large');
+})
+
+
+// delivery charge
+function deliveryPayment(isDelivery)
+{
+    const deliveryCost= document.getElementById('delivery-cost');
+    if(isDelivery)
+    {
+        deliveryCost.innerText= 20;
+        finalTotal();
+    }
+    else
+    {
+        deliveryCost.innerText=0;
+        finalTotal();
+    }
+    
+}
+
+document.getElementById('delivery-zero').addEventListener('click', function(){
+    deliveryPayment(false);
+})
+document.getElementById('delivery-charge').addEventListener('click', function(){
+    deliveryPayment(true);
 })
