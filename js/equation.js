@@ -6,13 +6,12 @@ function ramPayment(isCharge)
     if(isCharge)
     {
         ramPayment.innerText= 180;
-        finalTotal();
     }
     else
     {
         ramPayment.innerText=0;
-        finalTotal();
     }
+    finalTotal();
     
 }
 document.getElementById('ram-zero').addEventListener('click', function(){
@@ -29,18 +28,17 @@ function storagePayment(type)
     if(type== 'usual')
     {
         document.getElementById('storage-cost').innerText= 0;
-        finalTotal();
+       
     }
     else if(type== 'medium')
     {
         document.getElementById('storage-cost').innerText= 100;
-        finalTotal();
     }
     else if(type== 'large')
     {
         document.getElementById('storage-cost').innerText= 180;
-        finalTotal();
     }
+    finalTotal();
 
 }
 document.getElementById('ssd-usual').addEventListener('click', function(){
@@ -61,13 +59,13 @@ function deliveryPayment(isDelivery)
     if(isDelivery)
     {
         deliveryCost.innerText= 20;
-        finalTotal();
     }
     else
     {
         deliveryCost.innerText=0;
-        finalTotal();
+      
     }
+    finalTotal();
     
 }
 
