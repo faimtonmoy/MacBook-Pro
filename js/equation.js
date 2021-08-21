@@ -1,16 +1,3 @@
-
-// Final Total Calculation
-function finalTotal()
-{
-    const totalPrice= document.getElementById('total-price');
-    const basePrice= document.getElementById('base-price').innerText;
-    const ramPrice= document.getElementById('ram-payment').innerText;
-    const storageCost= document.getElementById('storage-cost').innerText;
-    const deliveryCost= document.getElementById('delivery-cost').innerText;
-    totalPrice.innerText= parseInt(basePrice)+ parseInt(ramPrice)+ parseInt(storageCost)+ parseInt(deliveryCost);
-
-
-}
 // Memory Payment Buttons calculation
 function ramPayment(isCharge)
 {
@@ -90,3 +77,36 @@ document.getElementById('delivery-zero').addEventListener('click', function(){
 document.getElementById('delivery-charge').addEventListener('click', function(){
     deliveryPayment(true);
 })
+
+
+
+// Final Total Calculation
+function finalTotal()
+{
+    const totalPrice= document.getElementById('total-price');
+    const basePrice= document.getElementById('base-price').innerText;
+    const ramPrice= document.getElementById('ram-payment').innerText;
+    const storageCost= document.getElementById('storage-cost').innerText;
+    const deliveryCost= document.getElementById('delivery-cost').innerText;
+    totalPrice.innerText= parseInt(basePrice)+ parseInt(ramPrice)+ parseInt(storageCost)+ parseInt(deliveryCost);
+    promoTotal(totalPrice.innerText); // calling promo code function to check whether it has any promo or not, then putting the final value in the output
+
+
+}
+//promo code button
+document.getElementById('promo-button').addEventListener('click', function(){
+    const totalPrice= document.getElementById('total-price');
+    promoTotal(totalPrice.innerText);
+})
+//Promo code check and final total output after discount
+function promoTotal(totalPrice)
+{
+    const promoInput= document.getElementById('promo-input');
+    if(promoInput.value== 'stevekaku')
+    {
+        totalPrice= parseFloat (totalPrice) * .80;
+        promoInput.value= '';
+    }
+    document.getElementById('final-total').innerText= totalPrice;
+
+}
